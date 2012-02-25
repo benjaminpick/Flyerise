@@ -23,7 +23,8 @@ PS_TEMPFILE_2="$TEMP".out.ps
 
 echo -n "Check if Page should be rotated ... "
 WIDTH=`pdfinfo "$PDF_INPUT" | grep -e "Page size:" | cut -c 17-19`
-if [ $WIDTH -eq "842" ] ; then # Assume A4! Better: Check if WIDTH > HEIGHT
+HEIGHT=`pdfinfo "$PDF_INPUT" | grep -e "Page size:" | cut -c 26-28`
+if [ "$WIDTH" -gt "$HEIGHT" ] ; then
 	PAGE_ALIAS="AW "
 	echo "Yes" 
 else
