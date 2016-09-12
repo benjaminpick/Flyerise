@@ -25,7 +25,7 @@ echo -n "Check if Page should be rotated ... "
 WIDTH=`pdfinfo "$PDF_INPUT" | grep -e "Page size:" | cut -c 17-19`
 HEIGHT=`pdfinfo "$PDF_INPUT" | grep -e "Page size:" | cut -c 26-28`
 if [ "$WIDTH" -gt "$HEIGHT" ] ; then
-	PAGE_ALIAS="AW "
+	PAGE_ALIAS="Awest "
 	echo "Yes" 
 else
 	PAGE_ALIAS="A  "
